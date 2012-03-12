@@ -88,7 +88,7 @@ function songkick_admin_settings() {
     echo '<table class="form-table">';
     echo '<tr><th><label for="songkick_apikey">' . 'Songkick API Key' . '</label></th>';
     echo '<td><input id="songkick_apikey" name="songkick_apikey" type="text" value="'.$apikey.'" />';
-    echo '<span class="description">Required &ndash; <a href="http://developer.songkick.com">Request one from Songkick</a></span>';
+    echo '<span class="description">Required &ndash; <a target="_blank" href="http://developer.songkick.com">Request one from Songkick</a></span>';
     echo '</td></tr>';
 
     echo '<tr><th><label for="songkick_id_type">' . 'Songkick ID' . '</label></th>';

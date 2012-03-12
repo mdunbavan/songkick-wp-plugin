@@ -11,7 +11,7 @@ class SongkickPresentableEvent {
 
         $html  = '<div itemscope itemtype="http://schema.org/Event">';
         $html .= $date;
-        $html .= '<span class="event-name"><a itemprop="url" href="'.$this->event_url().'"><span itemprop="name">'.$this->event_name().'</span></a>';
+        $html .= '<span class="event-name"><a itemprop="url" target="_blank" href="'.$this->event_url().'"><span itemprop="name">'.$this->event_name().'</span></a>';
         $html .= '<br> '.$this->venue_to_html(). '</span>';
         $html .= '<div style="clear:left"></div>';
         $html .= '</div>';
@@ -110,7 +110,8 @@ class SongkickPresentableEvent {
         // Construct the HTML block presenting the formatted date.
         $override_color = (empty($date_color)) ? '' : ';background-color:'.$date_color;
         $str = '<meta itemprop="startDate" content="'.date('c', $date).'">';
-        $str .= '<span class="date-wrapper" style="'.$css['date-wrapper'].'"><a style="'.$css['a-date-wrapper'].'" title="'.date('Y-m-d', $date).'" href="'.$this->event_url().'">';
+        $str .= '<span class="date-wrapper"
+        style="'.$css['date-wrapper'].'"><a style="'.$css['a-date-wrapper'].'" title="'.date('Y-m-d', $date).'" target="_blank" href="'.$this->event_url().'">';
         $str .= '  <span class="day-name" style="'.$css['day-name'].$override_color.'">'.htmlentities($day_name, ENT_QUOTES, 'UTF-8').'</span>';
         $str .= '  <span class="day-month" style="'.$css['day-month'].'"><span class="month" style="'.$css['month'].'">'.htmlentities($month_name, ENT_QUOTES, 'UTF-8').'</span>';
         $str .= '  <span class="day" style="'.$css['day'].'">'.date('d', $date).'</span></span>';

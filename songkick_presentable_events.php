@@ -80,7 +80,7 @@ class SongkickPresentableEvents {
                     $str .= "« &nbsp;";
                 else {
                     $prev = $this->page-1;
-                    $str .= "<a href=\"".$this->current_url("skp=$prev")."\" rel=\"prev\">«</a> &nbsp;";
+                    $str .= "<a target="_blank" href=\"".$this->current_url("skp=$prev")."\" rel=\"prev\">«</a> &nbsp;";
                 }
 
                 $str .= $this->page_to_html(1);
@@ -94,12 +94,12 @@ class SongkickPresentableEvents {
                     $str .= "» &nbsp;";
                 else {
                     $next = $this->page+1;
-                    $str .= "<a href=\"".$this->current_url("skp=$next")."\" rel=\"next\">»</a> &nbsp;";
+                    $str .= "<a target="_blank" href=\"".$this->current_url("skp=$next")."\" rel=\"next\">»</a> &nbsp;";
                 }
                 $str .= '</div>';
             }
         } else {
-            $str .= '<p class="profile-title"><a href="'.$this->songkick_events->profile_url().'">';
+            $str .= '<p class="profile-title"><a target="_blank" href="'.$this->songkick_events->profile_url().'">';
             $str .= htmlentities($profile_title, ENT_QUOTES, SONGKICK_I18N_ENCODING)."</a></p>";
         }
         $str .= $this->powered_by_songkick($this->logo);
@@ -121,13 +121,13 @@ class SongkickPresentableEvents {
         if ($page == $this->page)
             $str .= "$page &nbsp;";
         else
-            $str .= "<a href=\"".$this->current_url("skp=$page")."\">$page</a> &nbsp;";
+            $str .= "<a target="_blank" href=\"".$this->current_url("skp=$page")."\">$page</a> &nbsp;";
         return $str;
     }
 
     private function powered_by_songkick($logo) {
         $text = __('Concerts by Songkick', SONGKICK_TEXT_DOMAIN);
-        $html  = "<a class='powered-by' href='http://www.songkick.com/'>";
+        $html  = "<a class='powered-by' target="_blank" href='http://www.songkick.com/'>";
         $html .= "<img src='".site_url('/wp-content/plugins/songkick-concerts-and-festivals/'.$logo)."' title='".htmlentities($text, ENT_QUOTES, SONGKICK_I18N_ENCODING)."' alt='".htmlentities($text, ENT_QUOTES, SONGKICK_I18N_ENCODING)."' /></a>";
         return $html;
     }
